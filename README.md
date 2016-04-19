@@ -11,7 +11,8 @@ For this project, you'll fill in the missing pieces from the CodeWorldsV2 source
 
 ### Basic Level: Non-hierarchical Implementation
 **For the Basic level, implement the world-reading and displaying functions of CodeWorldsV2. But importantly, do so only for one level of hierarchy.
-Specifically, this means that the input will not have patterns, and that any `CompositeBody` object you create will have only Brick members -- no `CompositeBody` will include other `CompositeBody`s. Here are the tasks:**
+Specifically, this means that the input will not have patterns, and that any `CompositeBody` object you create will have only Brick members -- no `CompositeBody` will include other `CompositeBody`s.
+Here are the tasks:**
 
 - **Task 1: Write `CompositeBody`:**
     - `CompositeBody` was described in the lectures, but the supplied CodeWordsV2 code includes no implementation. Write a simple one, leaving methods `getBounds`, `clone`, and `iterator` stubbed out for now. Add a member datum to hold references to child objects. (You could use `Brick` references, but you'll need to change to `Body` references in the Silver version, so use `Body` references, but assume you can downcast them to `Bricks`.)
