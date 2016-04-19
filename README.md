@@ -9,7 +9,7 @@ This is the Code Worlds V2 project for Object Oriented Programing
 For this project, you'll fill in the missing pieces from the CodeWorldsV2 source code that is supplied with the project. Be sure to first view the lectures for the CodeWorlds module, and do the ILQs.  The project has Basic, Bronze, Silver and Gold levels, each described below
 
 
-## Basic Level: Non-hierarchical Implementation
+### Basic Level: Non-hierarchical Implementation
 **For the Basic level, implement the world-reading and displaying functions of CodeWorldsV2. But importantly, do so only for one level of hierarchy.
 Specifically, this means that the input will not have patterns, and that any `CompositeBody` object you create will have only Brick members -- no `CompositeBody` will include other `CompositeBody`s. Here are the tasks:**
 
@@ -30,7 +30,7 @@ Specifically, this means that the input will not have patterns, and that any `Co
     - Once you have tasks 1 - 4 complete, check that your application works like the CodeWorldsV2 version in the lectures, and in the Jar supplied with the project, again assuming no patterns in the input file.
 
  
-## Bronze Level: Add Creative Elements
+### Bronze Level: Add Creative Elements
 **The Bronze level offers a chance to do some creative work.**
 - **Task 1:**
     - Implement the `getImage` methods in `Horse` and `Sloth` to provide better images. Build something at least as sophisticated as the existing Cow and Tree images, and use their code as an example.
@@ -39,7 +39,7 @@ Specifically, this means that the input will not have patterns, and that any `Co
     - Write an `AutoWorldFactory` class that implements `WorldFactory`, creating a world automatically. Add a new first commandline option of 'A', and use your `AutoWorldFactory` to create the world if that option is specified. You may create any world you like, though note that at this level you'll be limited to using individual `Bricks` and not patterns. Don't put too much work into it now, if you plan to complete the Silver level, since the patterns added in Silver will make much more complex worlds possible.
 
 
-## Silver Level: Hierarchical Implementation
+### Silver Level: Hierarchical Implementation
 **For the Silver level, make the implementation of InputStreamWorldFactory and CompositeBody fully hierarchical. Specifically, this means that CompositeBody may have other CompositeBodys as children.**
 
 - **Task 1: Implement getBounds and clone**
@@ -54,7 +54,7 @@ Add processing and use of patterns in `InputStreamWorldFactory`. Some suggestion
 Extend iterator for `CompositeBody` to allow `CompositeBodys` as children. This is a pretty sophisticated task. You'll need to treat each child as a `Body`, not simply assume it's a `Brick`. I found it necessary to have two iterators within the `CompositeBody` iterator, and also to have a simple iterator for `Brick` itself.
 
 
-## Gold Level: AutoWorldFactory Challenge
+### Gold Level: AutoWorldFactory Challenge
 For the Gold level, improve your `AutoWorldFactory` class to make use of patterns, and to build as sophisticated a world as possible within a limited body of code.
 
 Your `AutoWorldFactory` and any supporting code you add to go with it, may be at most one page long, following standard coding style. The challenge is not to merely create a world automatically, but to create the most interesting one you can with just one page of code. Your extra credit grade may be partly based on sophisticated use of loops, hierarchical structures, etc. and on the complexity of the world you create in one page.
