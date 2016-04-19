@@ -1,27 +1,29 @@
 # CSCI240Final
 This is the Code Worlds V2 project for Object Oriented Programing
 
-***Code should now be compilable***
 
-####CodeWorldsV2 Project Spec
+## CodeWorldsV2 Project Spec
 **Overview**
 
 For this project, you'll fill in the missing pieces from the CodeWorldsV2 source code that is supplied with the project. Be sure to first view the lectures for the CodeWorlds module, and do the ILQs.  The project has Basic, Bronze, Silver and Gold levels, each described below
 
-**Basic Level: Non-hierarchical Implementation**
-For the Basic level, implement the world-reading and displaying functions of CodeWorldsV2. But importantly, do so only for one level of hierarchy.
-Specifically, this means that the input will not have patterns, and that any CompositeBody object you create will have only Brick members -- no CompositeBody will include other CompositeBodys. Here are the tasks:
+## Basic Level: Non-hierarchical Implementation
+`For the Basic level, implement the world-reading and displaying functions of CodeWorldsV2. But importantly, do so only for one level of hierarchy.
+Specifically, this means that the input will not have patterns, and that any CompositeBody object you create will have only Brick members -- no CompositeBody will include other CompositeBodys. Here are the tasks:`
 
 **Task 1: Write CompositeBody:**
 CompositeBody was described in the lectures, but the supplied CodeWordsV2 code includes no implementation. Write a simple one, leaving methods getBounds, clone, and iterator stubbed out for now. Add a member datum to hold references to child objects. (You could use Brick references, but you'll need to change to Body references in the Silver version, so use Body references, but assume you can downcast them to Bricks.)
-Task 2 Implement getBounds and clone
+
+**Task 2 Implement getBounds and clone**
 Of the three Body methods needing implementation, getBounds and clone are easier than iterator. Leave stub methods for the latter in CompositeBody and Brick, and implement getBounds and clone.
 Note that getBounds must be implemented by computation and not, for instance, by simply passing a boundary value in a constructor, saving it as a member and returning it. In future versions, getBounds may even return different values at different times for the same Body, as movement occurs in the simulation. So it must be computed when called.
 Implementing CompositeBody.clone is optional at this level; there will be no need for it, though there will be for Brick.clone. Leave it stubbed if you like.
-Task 3 Implement InputStreamWorldFactory
+
+**Task 3 Implement InputStreamWorldFactory**
 Implement reading of worlds in InputStreamWorldFactory, but without patterns. Just read a list of built in items like Cow, Horse, etc.
 Do this by keeping a table of model items, keyed by name. When you read a line of input specifying, say, Cow, look the model item up in the table, and clone it, per the Prototype pattern. This is a bit elaborate when all you're reading and creating are Bricks, but you'll find this design very helpful when you move to reading patterns in the Silver version.
-Task 4 Implement iterator for Brick and CompositeBody
+
+**Task 4 Implement iterator for Brick and CompositeBody**
 The supplied CodeWorlds.main function must work without alteration. You'll need to implement iterator for CompositeBody in order for the loop in that main function to work. This is a slightly complex task, and will require an inner class of CompositeBody. But, per usual for this version, assume the only children of a CompositeBody are Bricks.
 Once you have tasks 1 - 4 complete, check that your application works like the CodeWorldsV2 version in the lectures, and in the Jar supplied with the project, again assuming no patterns in the input file.
  
