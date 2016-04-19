@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.Date;
 
 public class Logger {
-    public static String kLogFile = "CodeWorlds.log";
+    public static String kLogFile = "Files/CodeWorlds.log";
 
     private static Logger singleton;  // Singleton CodeWorlds.Logger object
 
