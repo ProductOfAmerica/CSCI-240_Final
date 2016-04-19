@@ -1,8 +1,8 @@
 ( Stand
-   Tree 0 0
-   Tree 1 2
-   Tree 3 3
-   Tree 1 3
+   CodeWorlds.Tree 0 0
+   CodeWorlds.Tree 1 2
+   CodeWorlds.Tree 3 3
+   CodeWorlds.Tree 1 3
 )
 
 ( Forest
@@ -13,34 +13,34 @@
 )
 
 ( Boulder
-   Stone 0 0
-   Stone 1 0
-   Stone 1 1
-   Stone 0 1
+   CodeWorlds.Stone 0 0
+   CodeWorlds.Stone 1 0
+   CodeWorlds.Stone 1 1
+   CodeWorlds.Stone 0 1
 )
 
 ( RockField
    Boulder 0 0
-   Stone 3 2
-   Stone 1 3
+   CodeWorlds.Stone 3 2
+   CodeWorlds.Stone 1 3
 )
 
 ( Mine
   RockField 0 0
-  Ore 2 0
-  Ore 2 1
-  Ore 1 2
+  CodeWorlds.Ore 2 0
+  CodeWorlds.Ore 2 1
+  CodeWorlds.Ore 1 2
 )
 
 ( Pond
-   Water 0 0
-   Water 0 1
-   Water 1 0
-   Water 1 1
-   Water 0 2
-   Water 1 2
-   Water 2 0
-   Water 2 1
+   CodeWorlds.Water 0 0
+   CodeWorlds.Water 0 1
+   CodeWorlds.Water 1 0
+   CodeWorlds.Water 1 1
+   CodeWorlds.Water 0 2
+   CodeWorlds.Water 1 2
+   CodeWorlds.Water 2 0
+   CodeWorlds.Water 2 1
 )
    
 Pond 15 14
@@ -52,11 +52,11 @@ Forest 10 4
 RockField 1 15
 RockField 5 15
 Mine 8 14
-Cow 4 12
-Cow 5 7
-Cow 10 11
-Cow 14 12
-Horse 2 3
-Horse 12 13
-Horse 2 10
-Tree 3 3
+CodeWorlds.Cow 4 12
+CodeWorlds.Cow 5 7
+CodeWorlds.Cow 10 11
+CodeWorlds.Cow 14 12
+CodeWorlds.Horse 2 3
+CodeWorlds.Horse 12 13
+CodeWorlds.Horse 2 10
+CodeWorlds.Tree 3 3

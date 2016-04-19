@@ -1,4 +1,4 @@
-package com.cstaley.JavaOO.CodeWorlds.V2.release;
+package CodeWorlds;
 
 import java.awt.Image;
 
