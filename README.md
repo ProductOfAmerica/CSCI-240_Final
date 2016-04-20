@@ -6,9 +6,8 @@ This is the Code Worlds V2 project for Object Oriented Programing
 
 ## CodeWorldsV2 Project Spec
 For this project, you'll fill in the missing pieces from the CodeWorldsV2 source code that is supplied with the project. Be sure to first view the lectures for the CodeWorlds module, and do the ILQs.  The project has Basic, Bronze, Silver and Gold levels, each described below
-
+ 
 ****
-
  
 ### Basic Level: Non-hierarchical Implementation
 **For the Basic level, implement the world-reading and displaying functions of CodeWorldsV2. But importantly, do so only for one level of hierarchy.
