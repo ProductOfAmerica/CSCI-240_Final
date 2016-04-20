@@ -31,6 +31,7 @@ Here are the tasks:**
 - **Task 4: Implement iterator for Brick and CompositeBody**
     - The supplied `CodeWorlds.main` function must work without alteration. You'll need to implement `iterator` for `CompositeBody` in order for the loop in that main function to work. This is a slightly complex task, and will require an inner class of `CompositeBody`. But, per usual for this version, assume the only children of a `CompositeBody` are `Bricks`.
     - Once you have tasks 1 - 4 complete, check that your application works like the CodeWorldsV2 version in the lectures, and in the Jar supplied with the project, again assuming no patterns in the input file.
+
 ****
 
  
@@ -41,6 +42,7 @@ Here are the tasks:**
 
 - **Task 2**
     - Write an `AutoWorldFactory` class that implements `WorldFactory`, creating a world automatically. Add a new first commandline option of 'A', and use your `AutoWorldFactory` to create the world if that option is specified. You may create any world you like, though note that at this level you'll be limited to using individual `Bricks` and not patterns. Don't put too much work into it now, if you plan to complete the Silver level, since the patterns added in Silver will make much more complex worlds possible.
+
 ****
 
  
@@ -57,6 +59,7 @@ Add processing and use of patterns in `InputStreamWorldFactory`. Some suggestion
 
 - **Task 3 Implement iterator for Brick and CompositeBody**
 Extend iterator for `CompositeBody` to allow `CompositeBodys` as children. This is a pretty sophisticated task. You'll need to treat each child as a `Body`, not simply assume it's a `Brick`. I found it necessary to have two iterators within the `CompositeBody` iterator, and also to have a simple iterator for `Brick` itself.
+
 ****
 
  
