@@ -1,4 +1,4 @@
-<img src=".github/CodeWorld.jpg" width="1000">
+<img src=".github/CodeWorlds.jpg" width="1000">
 
 # CSCI240Final
 This is the Code Worlds V2 project for Object Oriented Programing
