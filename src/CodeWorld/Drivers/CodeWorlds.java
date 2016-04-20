@@ -6,8 +6,8 @@ import CodeWorld.Drivers.Helpers.Logger;
 import CodeWorld.Drivers.Helpers.WorldFactory;
 import CodeWorld.Graphics.Display;
 import CodeWorld.Graphics.DumpDisplay;
-import CodeWorld.Graphics.GraphicsFrame;
 import CodeWorld.Objects.Body;
+import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Objects.Shapes.Rectangle;
 
 import java.io.FileInputStream;

@@ -1,8 +1,9 @@
-package CodeWorld.Graphics;
+package CodeWorld.Drivers;
 
 import CodeWorld.Animals.Cow;
 import CodeWorld.Animals.Sloth;
-import CodeWorld.Drivers.Brick;
+import CodeWorld.Graphics.GraphicsPanel;
+import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Drivers.Helpers.CWSException;
 import CodeWorld.Objects.Body;
 import CodeWorld.Objects.Ore;

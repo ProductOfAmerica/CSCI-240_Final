@@ -1,4 +1,4 @@
-package CodeWorld.Drivers;
+package CodeWorld.Objects.Shapes;
 
 import CodeWorld.Objects.Body;
 import CodeWorld.Graphics.Displayable;
@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
-// Fundamental unit of display.  A CodeWorld.Drivers.Brick is one cell in the display.
+// Fundamental unit of display.  A CodeWorld.Objects.Shapes.Brick is one cell in the display.
 public abstract class Brick implements Body, Displayable {
 
     // Create an image of color |bg|, with |fg| dots at random location, with

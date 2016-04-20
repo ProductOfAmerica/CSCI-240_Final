@@ -1,7 +1,7 @@
 package CodeWorld.Graphics;
 
 import CodeWorld.Drivers.Helpers.CWSException;
-import CodeWorld.Drivers.Brick;
+import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Objects.Shapes.Vector;
 
 import java.awt.Color;
