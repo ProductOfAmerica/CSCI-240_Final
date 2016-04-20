@@ -3,6 +3,8 @@
 # CSCI240Final
 This is the Code Worlds V2 project for Object Oriented Programing
 
+Ignore the following `files`/**folders**: `README.md`, `CSCI240Final.iml`, **.idea**, **.github**.
+
 
 ### CodeWorldsV2 Project Spec
 For this project, you'll fill in the missing pieces from the CodeWorldsV2 source code that is supplied with the project. Be sure to first view the lectures for the CodeWorld module, and do the ILQs.  The project has Basic, Bronze, Silver and Gold levels, each described below
