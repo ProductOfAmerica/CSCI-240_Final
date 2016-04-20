@@ -20,13 +20,12 @@ public class Stone extends Brick {
     public Vector getLoc()  {return loc;}
 
     @Override
-    public String toString() {return "CodeWorld.Objects.Stone";}
+    public String toString() {return "Stone";}
 
     @Override
     public Image getImage(int size) {
         if (size != imgSize)
-            img = makeStippleImage(size, new Color(128, 110, 90),
-                    new Color(64, 55, 45), 13, 11);
+            img = makeStippleImage(size, new Color(128, 110, 90), new Color(64, 55, 45), 13, 11);
 
         return img;
     }
@@ -42,7 +41,7 @@ public class Stone extends Brick {
 
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return new Stone(loc.plus(offset));
     }
 
     @Override

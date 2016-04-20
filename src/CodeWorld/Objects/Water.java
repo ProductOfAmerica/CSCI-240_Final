@@ -20,13 +20,12 @@ public class Water extends Brick {
     public Vector getLoc()  {return loc;}
 
     @Override
-    public String toString() {return "CodeWorld.Objects.Water";}
+    public String toString() {return "Water";}
 
     @Override
     public Image getImage(int size) {
         if (size != imgSize)
-            img = makeStippleImage(size, new Color(64, 64, 255),
-                    new Color(128, 128, 255), 13, 11);
+            img = makeStippleImage(size, new Color(64, 64, 255), new Color(128, 128, 255), 13, 11);
 
         return img;
     }
@@ -42,7 +41,7 @@ public class Water extends Brick {
 
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return new Water(loc.plus(offset));
     }
 
     @Override

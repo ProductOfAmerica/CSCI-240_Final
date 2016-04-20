@@ -22,7 +22,7 @@ public class Tree extends Brick {
     public Vector getLoc()  {return loc;}
 
     @Override
-    public String toString() {return "CodeWorld.Objects.Tree";}
+    public String toString() {return "Tree";}
 
     @Override
     public Image getImage(int size) {
@@ -63,7 +63,7 @@ public class Tree extends Brick {
 
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return  new Tree(loc.plus(offset));
     }
 
     @Override

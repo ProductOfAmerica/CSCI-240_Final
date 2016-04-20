@@ -90,7 +90,7 @@ public class Cow extends HerdAnimal {
 
     @Override
     public Body clone(Vector offset) {
-        return null;
+        return new Cow(getLoc().plus(offset));
     }
 
     @Override
