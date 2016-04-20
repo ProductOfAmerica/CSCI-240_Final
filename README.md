@@ -14,6 +14,7 @@ For this project, you'll fill in the missing pieces from the CodeWorldsV2 source
 Specifically, this means that the input will not have patterns, and that any `CompositeBody` object you create will have only Brick members -- no `CompositeBody` will include other `CompositeBody`s.
 Here are the tasks:**
 
+ 
 - **Task 1: Write `CompositeBody`:**
     - `CompositeBody` was described in the lectures, but the supplied CodeWordsV2 code includes no implementation. Write a simple one, leaving methods `getBounds`, `clone`, and `iterator` stubbed out for now. Add a member datum to hold references to child objects. (You could use `Brick` references, but you'll need to change to `Body` references in the Silver version, so use `Body` references, but assume you can downcast them to `Bricks`.)
 
@@ -39,7 +40,7 @@ Here are the tasks:**
 - **Task 2**
     - Write an `AutoWorldFactory` class that implements `WorldFactory`, creating a world automatically. Add a new first commandline option of 'A', and use your `AutoWorldFactory` to create the world if that option is specified. You may create any world you like, though note that at this level you'll be limited to using individual `Bricks` and not patterns. Don't put too much work into it now, if you plan to complete the Silver level, since the patterns added in Silver will make much more complex worlds possible.
 
-
+ 
 ### Silver Level: Hierarchical Implementation
 **For the Silver level, make the implementation of InputStreamWorldFactory and CompositeBody fully hierarchical. Specifically, this means that CompositeBody may have other CompositeBodys as children.**
 
@@ -55,6 +56,7 @@ Add processing and use of patterns in `InputStreamWorldFactory`. Some suggestion
 Extend iterator for `CompositeBody` to allow `CompositeBodys` as children. This is a pretty sophisticated task. You'll need to treat each child as a `Body`, not simply assume it's a `Brick`. I found it necessary to have two iterators within the `CompositeBody` iterator, and also to have a simple iterator for `Brick` itself.
 
 
+ 
 ### Gold Level: AutoWorldFactory Challenge
 For the Gold level, improve your `AutoWorldFactory` class to make use of patterns, and to build as sophisticated a world as possible within a limited body of code.
 
