@@ -1,4 +1,4 @@
-package CodeWorlds;
+package CodeWorld.Objects.Shapes;
 
 public class Rectangle {
     protected int left;
@@ -28,7 +28,7 @@ public class Rectangle {
     public int getRight() {return left + width;}
     public int getBottom() {return top + height;}
 
-    // Return a new CodeWorlds.Rectangle that encloses both this and |other|
+    // Return a new CodeWorld.Objects.Shapes.Rectangle that encloses both this and |other|
     public Rectangle union(Rectangle other) {
         return new Rectangle(this).unionBy(other);
     }
@@ -37,7 +37,7 @@ public class Rectangle {
         return new Rectangle(this).expandBy(margin);
     }
 
-    // Expand this CodeWorlds.Rectangle so that it includes |r|.
+    // Expand this CodeWorld.Objects.Shapes.Rectangle so that it includes |r|.
     public Rectangle unionBy(Rectangle r) {
         int right = Math.max(r.left + r.width, left + width);
         int bottom = Math.max(r.top + r.height, top + height);
@@ -50,7 +50,7 @@ public class Rectangle {
         return this;
     }
 
-    // Increase this CodeWorlds.Rectangle's size, on all boundaries, by |margin|
+    // Increase this CodeWorld.Objects.Shapes.Rectangle's size, on all boundaries, by |margin|
     public Rectangle expandBy(int margin) {
         left -= margin;
         top -= margin;

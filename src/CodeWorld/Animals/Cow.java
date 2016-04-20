@@ -1,4 +1,9 @@
-package CodeWorlds;
+package CodeWorld.Animals;
+
+import CodeWorld.Drivers.Brick;
+import CodeWorld.Objects.Body;
+import CodeWorld.Objects.Shapes.Rectangle;
+import CodeWorld.Objects.Shapes.Vector;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -13,7 +18,7 @@ public class Cow extends HerdAnimal {
     public Cow(Vector loc) {super(loc, new Vector());}
 
     @Override
-    public String getLabel() {return "CodeWorlds.Cow";}  // C for CodeWorlds.Cow
+    public String getLabel() {return "CodeWorld.Animals.Cow";}  // C for CodeWorld.Animals.Cow
 
     @Override
     boolean isGoodLeader(HerdAnimal ldr) {
@@ -30,7 +35,7 @@ public class Cow extends HerdAnimal {
             img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
             grp = img.createGraphics();
 
-            // CodeWorlds.Body and head
+            // CodeWorld.Objects.Body and head
             grp.setColor(bodyClr);
             grp.fillRoundRect(3*size/10, 3*size/10, 6*size/10, 4*size/10, size/10,
                     size/10);

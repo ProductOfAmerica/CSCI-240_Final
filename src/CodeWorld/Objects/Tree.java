@@ -1,4 +1,8 @@
-package CodeWorlds;
+package CodeWorld.Objects;
+
+import CodeWorld.Drivers.Brick;
+import CodeWorld.Objects.Shapes.Rectangle;
+import CodeWorld.Objects.Shapes.Vector;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -18,7 +22,7 @@ public class Tree extends Brick {
     public Vector getLoc()  {return loc;}
 
     @Override
-    public String toString() {return "CodeWorlds.Tree";}
+    public String toString() {return "CodeWorld.Objects.Tree";}
 
     @Override
     public Image getImage(int size) {

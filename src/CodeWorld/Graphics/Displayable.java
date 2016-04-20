@@ -1,4 +1,6 @@
-package CodeWorlds;
+package CodeWorld.Graphics;
+
+import CodeWorld.Objects.Shapes.Vector;
 
 import java.awt.Image;
 

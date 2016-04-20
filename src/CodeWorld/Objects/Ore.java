@@ -1,4 +1,8 @@
-package CodeWorlds;
+package CodeWorld.Objects;
+
+import CodeWorld.Drivers.Brick;
+import CodeWorld.Objects.Shapes.Rectangle;
+import CodeWorld.Objects.Shapes.Vector;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -16,7 +20,7 @@ public class Ore extends Brick {
     public Vector getLoc()  {return loc;}
 
     @Override
-    public String toString() {return "CodeWorlds.Stone";}
+    public String toString() {return "CodeWorld.Objects.Stone";}
 
     @Override
     public Image getImage(int size) {

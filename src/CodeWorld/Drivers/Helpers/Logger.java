@@ -1,14 +1,14 @@
-package CodeWorlds;
+package CodeWorld.Drivers.Helpers;
 
 import java.io.PrintStream;
 import java.util.Date;
 
 public class Logger {
-    public static String kLogFile = ".github/Files/CodeWorlds.log";
+    public static String kLogFile = ".github/Files/CodeWorld.log";
 
-    private static Logger singleton;  // Singleton CodeWorlds.Logger object
+    private static Logger singleton;  // Singleton CodeWorld.Drivers.Helpers.Logger object
 
-    // Return the singleton CodeWorlds.Logger
+    // Return the singleton CodeWorld.Drivers.Helpers.Logger
     public static Logger getLogger() {
         if (singleton == null)
             singleton = new Logger();   // Lazy creation of singleton

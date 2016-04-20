@@ -1,4 +1,8 @@
-package CodeWorlds;
+package CodeWorld.Graphics;
+
+import CodeWorld.Drivers.Helpers.CWSException;
+import CodeWorld.Drivers.Brick;
+import CodeWorld.Objects.Shapes.Vector;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -31,7 +35,7 @@ public class GraphicsPanel extends JPanel implements Display {
 
         if (minCellSize < 1)
             throw new CWSException(
-                    String.format("CodeWorlds.Display dimension is over %d", kMaxDim));
+                    String.format("CodeWorld.Graphics.Display dimension is over %d", kMaxDim));
 
         // Nearest power of two <= minCellSize
         for (pixPerCell = 1; minCellSize > 1; minCellSize >>= 1)

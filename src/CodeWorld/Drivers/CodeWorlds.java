@@ -1,4 +1,14 @@
-package CodeWorlds;
+package CodeWorld.Drivers;
+
+import CodeWorld.Drivers.Helpers.CWSException;
+import CodeWorld.Drivers.Helpers.InputStreamWorldFactory;
+import CodeWorld.Drivers.Helpers.Logger;
+import CodeWorld.Drivers.Helpers.WorldFactory;
+import CodeWorld.Graphics.Display;
+import CodeWorld.Graphics.DumpDisplay;
+import CodeWorld.Graphics.GraphicsFrame;
+import CodeWorld.Objects.Body;
+import CodeWorld.Objects.Shapes.Rectangle;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -15,7 +25,7 @@ public class CodeWorlds {
         try {
             if (args.length < 1 || args.length > 2
                     || !args[0].equals("D") && !args[0].equals("G"))
-                throw new CWSException("Usage: CodeWorlds.CodeWorlds (D|G) [entityFile]");
+                throw new CWSException("Usage: CodeWorld.Drivers.CodeWorld (D|G) [entityFile]");
 
             fact = new InputStreamWorldFactory(args.length == 2 ?
                     new FileInputStream(args[1]) : System.in);

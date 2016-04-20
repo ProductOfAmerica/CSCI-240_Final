@@ -1,7 +1,12 @@
-package CodeWorlds;/* An CodeWorlds.Animal moves in a straight line within |range|, at a constant velocity.
+package CodeWorld.Animals;
+/* An CodeWorld.Animals.Animal moves in a straight line within |range|, at a constant velocity.
  * If this would take it out of range, it instead stays in place and turns 90
  * degrees to the right.
  */
+
+import CodeWorld.Drivers.Brick;
+import CodeWorld.Objects.Shapes.Rectangle;
+import CodeWorld.Objects.Shapes.Vector;
 
 public abstract class Animal extends Brick {
     protected static Rectangle range;  // All Animals have a common range.

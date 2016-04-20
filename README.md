@@ -1,11 +1,11 @@
-<img src=".github/CodeWorlds.jpg" width="1000">
+<img src=".github/CodeWorld.jpg" width="1000">
 
 # CSCI240Final
 This is the Code Worlds V2 project for Object Oriented Programing
 
 
 ### CodeWorldsV2 Project Spec
-For this project, you'll fill in the missing pieces from the CodeWorldsV2 source code that is supplied with the project. Be sure to first view the lectures for the CodeWorlds module, and do the ILQs.  The project has Basic, Bronze, Silver and Gold levels, each described below
+For this project, you'll fill in the missing pieces from the CodeWorldsV2 source code that is supplied with the project. Be sure to first view the lectures for the CodeWorld module, and do the ILQs.  The project has Basic, Bronze, Silver and Gold levels, each described below
 
  
 ****
@@ -28,7 +28,7 @@ Here are the tasks:**
     - Do this by keeping a table of model items, keyed by name. When you read a line of input specifying, say, Cow, look the model item up in the table, and clone it, per the Prototype pattern. This is a bit elaborate when all you're reading and creating are `Bricks`, but you'll find this design very helpful when you move to reading patterns in the Silver version.
 
 - **Task 4: Implement iterator for Brick and CompositeBody**
-    - The supplied `CodeWorlds.main` function must work without alteration. You'll need to implement `iterator` for `CompositeBody` in order for the loop in that main function to work. This is a slightly complex task, and will require an inner class of `CompositeBody`. But, per usual for this version, assume the only children of a `CompositeBody` are `Bricks`.
+    - The supplied `CodeWorld.main` function must work without alteration. You'll need to implement `iterator` for `CompositeBody` in order for the loop in that main function to work. This is a slightly complex task, and will require an inner class of `CompositeBody`. But, per usual for this version, assume the only children of a `CompositeBody` are `Bricks`.
     - Once you have tasks 1 - 4 complete, check that your application works like the CodeWorldsV2 version in the lectures, and in the Jar supplied with the project, again assuming no patterns in the input file.
 
 
@@ -52,7 +52,7 @@ As was true in the Basic level, `getBounds` and `clone` are easier than `iterato
 - **Task 2 Implement InputStreamWorldFactory**
 Add processing and use of patterns in `InputStreamWorldFactory`. Some suggestions:
     - A. Note that the code needed to read a pattern like Forest or Stand is the same as that needed to read the world contents at the end of the file. Treating each such pattern as a "subworld" is a good design.
-    - B. Extend the name-keyed table you build in the Basic level to allow entries that are `CompositeBodys`, representing patterns, as well as Bricks representing built in entities. Continue to clone via the Prototype design pattern, since the same CodeWorlds pattern may appear in many different spots (e.g. Forests might appear in many location in the world)
+    - B. Extend the name-keyed table you build in the Basic level to allow entries that are `CompositeBodys`, representing patterns, as well as Bricks representing built in entities. Continue to clone via the Prototype design pattern, since the same CodeWorld pattern may appear in many different spots (e.g. Forests might appear in many location in the world)
 
 - **Task 3 Implement iterator for Brick and CompositeBody**
 Extend iterator for `CompositeBody` to allow `CompositeBodys` as children. This is a pretty sophisticated task. You'll need to treat each child as a `Body`, not simply assume it's a `Brick`. I found it necessary to have two iterators within the `CompositeBody` iterator, and also to have a simple iterator for `Brick` itself.

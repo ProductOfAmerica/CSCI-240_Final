@@ -1,4 +1,14 @@
-package CodeWorlds;
+package CodeWorld.Graphics;
+
+import CodeWorld.Animals.Cow;
+import CodeWorld.Animals.Sloth;
+import CodeWorld.Drivers.Brick;
+import CodeWorld.Drivers.Helpers.CWSException;
+import CodeWorld.Objects.Body;
+import CodeWorld.Objects.Ore;
+import CodeWorld.Objects.Shapes.Rectangle;
+import CodeWorld.Objects.Shapes.Vector;
+import CodeWorld.Objects.Tree;
 
 import java.awt.Color;
 import java.awt.Container;

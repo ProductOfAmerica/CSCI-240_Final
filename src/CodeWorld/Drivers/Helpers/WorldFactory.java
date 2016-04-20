@@ -1,4 +1,6 @@
-package CodeWorlds;
+package CodeWorld.Drivers.Helpers;
+
+import CodeWorld.Objects.Body;
 
 public interface WorldFactory {
     public Body getWorld();               // Retrieve the World w/o rebuilding

@@ -1,19 +1,20 @@
-package CodeWorlds;
+package CodeWorld.Animals;
 
+import CodeWorld.Objects.Shapes.Vector;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-/* A CodeWorlds.HerdAnimal extends CodeWorlds.Animal behavior it two ways.  First, a CodeWorlds.HerdAnimal
- *  follows CodeWorlds.Animal behavior only until it finds another CodeWorlds.HerdAnimal to follow.
+/* A CodeWorld.Animals.HerdAnimal extends CodeWorld.Animals.Animal behavior it two ways.  First, a CodeWorld.Animals.HerdAnimal
+ *  follows CodeWorld.Animals.Animal behavior only until it finds another CodeWorld.Animals.HerdAnimal to follow.
  *  Thenceforth, it imitates the steps of its leader identically.  Second, a
- *  CodeWorlds.HerdAnimal maintains a list of followers, who register with it by providing
- *  an object implementing interface Follower. The CodeWorlds.HerdAnimal notifies all its
+ *  CodeWorld.Animals.HerdAnimal maintains a list of followers, who register with it by providing
+ *  an object implementing interface Follower. The CodeWorld.Animals.HerdAnimal notifies all its
  *  followers of each move it makes, so they can respond.  And if the
- *  starts following another CodeWorlds.HerdAnimal, it tells its followers to do so also.
+ *  starts following another CodeWorld.Animals.HerdAnimal, it tells its followers to do so also.
  *  
- *  CodeWorlds.HerdAnimal leaves isGoodLeader abstract, so it must be implemented by
- *  any derived form of CodeWorlds.HerdAnimal, based on the derived form's following
+ *  CodeWorld.Animals.HerdAnimal leaves isGoodLeader abstract, so it must be implemented by
+ *  any derived form of CodeWorld.Animals.HerdAnimal, based on the derived form's following
  *  logic.
  */
 public abstract class HerdAnimal extends Animal {
@@ -34,7 +35,7 @@ public abstract class HerdAnimal extends Animal {
         Vector oldLoc = loc;
 
         if (myLeader == null) {  // If leaderless
-            super.step();                     // plod on per usual CodeWorlds.Animal behavior
+            super.step();                     // plod on per usual CodeWorld.Animals.Animal behavior
             leadFollowers(loc.minus(oldLoc)); // and lead your followers
 
             // Seek a leader

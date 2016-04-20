@@ -1,4 +1,4 @@
-package CodeWorlds;
+package CodeWorld.Objects.Shapes;
 
 public class Vector {
     public final static double kEpsilon = .000001;
