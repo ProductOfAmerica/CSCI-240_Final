@@ -20,7 +20,6 @@ public class CodeWorlds {
         WorldFactory fact;
         Body world;
         Rectangle bounds;
-
         try (Scanner in = new Scanner(System.in)) {
             if (args.length < 1 || args.length > 2 || !args[0].equals("D") && !args[0].equals("G"))
                 throw new CWSException("Usage: CodeWorld.Drivers.CodeWorld (D|G) [entityFile]");
