@@ -26,19 +26,21 @@ public class Unicorn extends HerdAnimal {
     @Override
     public Image getImage(int size) {
         Graphics2D grp;
-        Color bodyClr = new Color(255, 255, 255), hornClr = new Color(229,30,255),
-                hoofClr = new Color(0, 0, 0), spotClr = Color.BLACK;
+        Color bodyClr = new Color(250, 0, 240), hornClr = new Color(0, 234, 255),
+                hoofClr = new Color(0, 255, 252), spotClr = Color.BLACK;
 
         if (size != imgSize) {
             img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
             grp = img.createGraphics();
+            grp.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
 
-            // CodeWorld.Objects.Body and head
-            grp.setColor(bodyClr);
-            grp.fillRoundRect(3*size/10, 3*size/10, 6*size/10, 4*size/10, size/10,
-                    size/10);
+            // CodeWorld.Objects.Head and body
+            grp.setColor(new Color(255, 175, 244, 254));
             grp.fillRoundRect(size/10,  2*size/10,  3*size/10,  2*size/10,
                     size/10, size/10);
+            grp.setColor(bodyClr);
+            grp.fillRoundRect(3*size/10, 3*size/10, 6*size/10, 4*size/10, size/5,
+                    size/5);
 
             // Legs
             grp.fillPolygon(
@@ -53,14 +55,13 @@ public class Unicorn extends HerdAnimal {
             grp.fillPolygon(
                     new int[] {size*5/20, size*4/10, size*9/20, size*2/10},
                     new int[] {size*17/20, size*17/20, size*19/20, size*19/20}, 4);
+            grp.setColor(new Color(8, 255, 0));
             grp.fillPolygon(
                     new int[] {size*15/20, size*9/10, size*19/20, size*7/10},
                     new int[] {size*17/20, size*17/20, size*19/20, size*19/20}, 4);
 
-            // Spots and eye
+            // Eye
             grp.setColor(spotClr);
-            grp.fillOval(4*size/10,  4*size/10,  size/10,  size/10);
-            grp.fillOval(6*size/10,  5*size/10,  size/5,  size/8);
             grp.fillOval(3*size/10, 5*size/20, size/40, size/40);
 
             // Horn
