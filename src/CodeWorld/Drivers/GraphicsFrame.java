@@ -2,6 +2,7 @@ package CodeWorld.Drivers;
 
 import CodeWorld.Animals.Cow;
 import CodeWorld.Animals.Sloth;
+import CodeWorld.Animals.Unicorn;
 import CodeWorld.Graphics.GraphicsPanel;
 import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Drivers.Helpers.CWSException;
@@ -104,6 +105,7 @@ public class GraphicsFrame extends JFrame {
         frame.getPnl().addDisplayable(new Ore(new Vector(6, 8)));
         frame.getPnl().addDisplayable(new Cow(new Vector(7, 8)));
         frame.getPnl().addDisplayable(new Sloth(new Vector(8, 8)));
+        frame.getPnl().addDisplayable(new Unicorn(new Vector(9, 8)));
 
         for (i = 0; i < 10; i++) {
             dsps[i] = new SampleDsp(new Vector(5 + i*10, 5 + i*10 + i%2),

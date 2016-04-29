@@ -1,35 +1,33 @@
 package CodeWorld.Animals;
 
-import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Objects.Body;
+import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Objects.Shapes.Rectangle;
 import CodeWorld.Objects.Shapes.Vector;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Iterator;
 
-public class Cow extends HerdAnimal {
+public class Unicorn extends HerdAnimal {
     private static int imgSize;
     private static BufferedImage img;
 
-    public Cow(Vector loc) {super(loc, new Vector());}
+    public Unicorn(Vector loc) {super(loc, new Vector());}
 
     @Override
     public String getLabel() {return "CodeWorld.Animals.Cow";}  // C for CodeWorld.Animals.Cow
 
     @Override
     boolean isGoodLeader(HerdAnimal ldr) {
-        return ldr instanceof Cow && ldr.loc.equals(loc);
+        return ldr instanceof Unicorn && ldr.loc.equals(loc);
     }
 
     @Override
     public Image getImage(int size) {
         Graphics2D grp;
-        Color bodyClr = new Color(210, 210, 210), hornClr = Color.DARK_GRAY,
-                hoofClr = new Color(80, 60, 40), spotClr = Color.BLACK;
+        Color bodyClr = new Color(255, 255, 255), hornClr = new Color(229,30,255),
+                hoofClr = new Color(0, 0, 0), spotClr = Color.BLACK;
 
         if (size != imgSize) {
             img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
@@ -87,7 +85,7 @@ public class Cow extends HerdAnimal {
 
     @Override
     public Body clone(Vector offset) {
-        return new Cow(getLoc().plus(offset));
+        return new Unicorn(getLoc().plus(offset));
     }
 
     @Override
