@@ -5,11 +5,20 @@ package CodeWorld.Drivers.Helpers;
 
 import CodeWorld.Objects.Body;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 /**
  * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 public class InputStreamWorldFactory implements WorldFactory {
+    private FileInputStream fileInputStream;
+    private InputStream inputStream;
     public InputStreamWorldFactory(Object p0) {
+        if(p0 instanceof FileInputStream)
+            fileInputStream = (FileInputStream) p0;
+        if(p0 instanceof InputStream)
+            inputStream = (InputStream) p0;
     }
 
     @Override
@@ -19,7 +28,7 @@ public class InputStreamWorldFactory implements WorldFactory {
 
     @Override
     public WorldFactory build() throws CWSException {
-        return null;
+        return this;
     }
 }
 /**

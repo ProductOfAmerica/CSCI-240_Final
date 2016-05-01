@@ -42,7 +42,7 @@ public class GraphicsFrame extends JFrame {
         return pnl;
     }
 
-    private static class SampleDsp extends Brick {
+    static class SampleDsp extends Brick {
         private static int imgSize;
         private static BufferedImage img;
 
