@@ -28,7 +28,11 @@ public class CompositeBody implements Body {
 
     @Override
     public Body clone(Vector offset) {
-        return null; //No need
+        CompositeBody body = new CompositeBody();
+        for(Body b : children){
+            body.add(b.clone(offset));
+        }
+        return body; //No need
     }
 
     @Override
@@ -37,7 +41,7 @@ public class CompositeBody implements Body {
     }
 
     public boolean add(Body body){
-        for(Brick b : body){
+        for (Brick b : body) {
             for (Brick temp : this) {
                 if (b.getClass() == temp.getClass() || b.getLoc().equals(temp.getLoc()))
                     continue;
@@ -47,11 +51,12 @@ public class CompositeBody implements Body {
 
         children.add(body);
 
-        if(bounds == null){
+        if (bounds == null) {
             bounds = body.getBounds();
-        }else{
+        } else {
             bounds.unionBy(body.getBounds());
         }
+
         return true;
     }
 
@@ -61,7 +66,7 @@ public class CompositeBody implements Body {
         Iterator<Body> bodyIterator;
 
         Brickerator() {
-            bodyIterator = children.iterator();
+            bodyIterator = CompositeBody.this.children.iterator();
         }
 
         @Override

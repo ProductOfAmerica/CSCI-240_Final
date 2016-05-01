@@ -1,5 +1,6 @@
 package CodeWorld.Animals;
 
+import CodeWorld.Drivers.Helpers.SingleIterator;
 import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Objects.Body;
 import CodeWorld.Objects.Shapes.Rectangle;
@@ -74,7 +75,7 @@ public class Cow extends HerdAnimal {
      */
     @Override
     public Rectangle getBounds() {
-        return null;
+        return new Rectangle(loc, 1, 1);
     }
 
     @Override
@@ -84,7 +85,7 @@ public class Cow extends HerdAnimal {
 
     @Override
     public Iterator<Brick> iterator() {
-        return null;
+        return new SingleIterator<>(this);
     }
     /**
      * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
