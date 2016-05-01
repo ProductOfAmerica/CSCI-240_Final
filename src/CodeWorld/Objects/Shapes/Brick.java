@@ -1,13 +1,14 @@
 package CodeWorld.Objects.Shapes;
 
+import CodeWorld.Drivers.Helpers.SingleIterator;
 import CodeWorld.Objects.Body;
 import CodeWorld.Graphics.Displayable;
-import CodeWorld.Objects.Shapes.Vector;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.util.Iterator;
 
 // Fundamental unit of display.  A CodeWorld.Objects.Shapes.Brick is one cell in the display.
 public abstract class Brick implements Body, Displayable {
@@ -38,12 +39,18 @@ public abstract class Brick implements Body, Displayable {
     }
 
     @Override
-    public Body clone(Vector offset) {
-        return null; //TODO fix later
+    public Rectangle getBounds() {
+        return new Rectangle(getLoc(), 1, 1);
     }
 
     @Override
     abstract public Vector getLoc();
+
     @Override
     public Vector getVlc() {return new Vector();}
+
+    @Override
+    public Iterator<Brick> iterator() {
+        return new SingleIterator<>(this);
+    }
 }
