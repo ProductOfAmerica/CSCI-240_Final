@@ -16,14 +16,10 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
 
-/**
- * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- */
 public class InputStreamWorldFactory implements WorldFactory {
     private Map<String, Body> bodyMap = new TreeMap<>();
     private Scanner in;
     private Body world;
-
 
     public InputStreamWorldFactory(Object p0) {
         in = new Scanner((InputStream) p0);
@@ -45,11 +41,9 @@ public class InputStreamWorldFactory implements WorldFactory {
 
     @Override
     public WorldFactory build() throws CWSException {
-        String current;
         while (in.hasNext("\\(")){
             in.next();
-            current = in.next().trim();
-            bodyMap.put(current, stringToBody());
+            bodyMap.put(in.next().trim(), stringToBody());
             if(in.hasNext() && in.next().contains(")"))
                 continue;
             throw new CWSException("Missing parenthesis");
@@ -63,9 +57,7 @@ public class InputStreamWorldFactory implements WorldFactory {
         CompositeBody body = new CompositeBody();
         while (in.hasNext() && !in.hasNext("\\)")){
             String tempName = in.next().trim(); //This will be the object type
-            int temp = in.nextInt(), temp2 =in.nextInt();
-            System.out.println(tempName + " -- " + temp + " -- " + temp2);
-            Vector tempVector = new Vector(temp, temp2);
+            Vector tempVector = new Vector(in.nextInt(), in.nextInt());
             if(bodyMap.containsKey(tempName)){ //Validate that the name exists in the bodyMap
                 if(body.add(bodyMap.get(tempName).clone(tempVector))) //Add it, if one does
                     continue;
@@ -76,6 +68,3 @@ public class InputStreamWorldFactory implements WorldFactory {
         return body;
     }
 }
-/**
- * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- */
