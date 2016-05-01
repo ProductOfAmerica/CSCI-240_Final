@@ -38,6 +38,11 @@ public abstract class Brick implements Body, Displayable {
     }
 
     @Override
+    public Body clone(Vector offset) {
+        return null; //TODO fix later
+    }
+
+    @Override
     abstract public Vector getLoc();
     @Override
     public Vector getVlc() {return new Vector();}
