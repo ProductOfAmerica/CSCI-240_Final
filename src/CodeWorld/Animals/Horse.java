@@ -28,8 +28,8 @@ public class Horse extends HerdAnimal {
     @Override
     public Image getImage(int size) {
         Graphics2D g;
-        Color bodyClr = new Color(210, 210, 210), hornClr = Color.DARK_GRAY,
-                hoofClr = new Color(80, 60, 40), spotClr = Color.BLACK;
+        Color bodyClr = new Color(98, 68, 55),
+                hoofClr = new Color(0, 0, 0), eyeColor = Color.BLACK;
 
         if (size != imgSize) {
             img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
@@ -61,10 +61,12 @@ public class Horse extends HerdAnimal {
                     new int[] {size*17/20, size*17/20, size*19/20, size*19/20}, 4);
 
             // Spots and eye
-            g.setColor(spotClr);
-            g.fillOval(4*size/10,  4*size/10,  size/10,  size/10);
-            g.fillOval(6*size/10,  5*size/10,  size/5,  size/8);
+            g.setColor(eyeColor);
             g.fillOval(3*size/10, 5*size/20, size/40, size/40);
+
+            //Tail
+            g.setStroke(new BasicStroke(size/40f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10.0f, new float[]{1}, 0.0f));
+            g.drawArc(7*size/10, 3*size/10, 3*size/10, 3*size/10, 0, 90);
 
             g.dispose();
         }
