@@ -32,9 +32,6 @@ public class Stone extends Brick {
     }
 
 
-    /**
-     * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(loc, 1, 1);
@@ -49,7 +46,4 @@ public class Stone extends Brick {
     public Iterator<Brick> iterator() {
         return new OtherIterator<>(this);
     }
-    /**
-     * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
 }

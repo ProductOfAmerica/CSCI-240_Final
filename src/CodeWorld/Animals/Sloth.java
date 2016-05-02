@@ -57,9 +57,7 @@ public class Sloth extends Animal {
         return img;
     }
 
-    /**
-     * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
+
     @Override
     public Rectangle getBounds() {
         return new Rectangle(loc, 1, 1);
@@ -74,7 +72,4 @@ public class Sloth extends Animal {
     public Iterator<Brick> iterator() {
         return new OtherIterator<>(this);
     }
-    /**
-     * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
 }

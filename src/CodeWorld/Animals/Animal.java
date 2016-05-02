@@ -10,7 +10,6 @@ import CodeWorld.Objects.Shapes.Vector;
 
 public abstract class Animal extends Brick {
     protected static Rectangle range;  // All Animals have a common range.
-    public static void setRange(Rectangle val) {range = val;}
 
     protected Vector vlc;      // Velocity (per time unit)
     protected Vector loc;      // Location (will be a MarginVector in fact)
@@ -26,7 +25,6 @@ public abstract class Animal extends Brick {
 
     @Override
     public Vector getVlc()         {return vlc;}
-    public void setVlc(Vector vlc) {this.vlc = vlc;}
 
     // Take a step resulting from the passage of one time unit
     public void step() {

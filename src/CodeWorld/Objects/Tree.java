@@ -54,9 +54,6 @@ public class Tree extends Brick {
         return img;
     }
 
-    /**
-     * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(loc, 1, 1);
@@ -71,7 +68,4 @@ public class Tree extends Brick {
     public Iterator<Brick> iterator() {
         return new OtherIterator<>(this);
     }
-    /**
-     * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
 }

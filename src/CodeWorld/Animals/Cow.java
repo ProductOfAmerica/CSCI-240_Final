@@ -70,9 +70,6 @@ public class Cow extends HerdAnimal {
         return img;
     }
 
-    /**
-     * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
     @Override
     public Rectangle getBounds() {
         return new Rectangle(loc, 1, 1);
@@ -87,7 +84,4 @@ public class Cow extends HerdAnimal {
     public Iterator<Brick> iterator() {
         return new OtherIterator<>(this);
     }
-    /**
-     * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     */
 }
