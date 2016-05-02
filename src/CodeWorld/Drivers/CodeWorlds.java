@@ -1,5 +1,6 @@
 package CodeWorld.Drivers;
 
+import CodeWorld.Drivers.Helpers.AutoWorldFactory;
 import CodeWorld.Drivers.Helpers.CWSException;
 import CodeWorld.Drivers.Helpers.InputStreamWorldFactory;
 import CodeWorld.Drivers.Helpers.Logger;
@@ -17,15 +18,17 @@ public class CodeWorlds {
     public static void main(String[] args) {
         try (Scanner in = new Scanner(System.in)) {
             try {
-                if (args.length < 1 || args.length > 2 || !args[0].equals("D") && !args[0].equals("G"))
-                    throw new CWSException("Usage: CodeWorlds (D|G) [entityFile]");
+                if ((args.length < 1 || args.length > 2) || (!args[0].equals("D") && !args[0].equals("G") && !args[0].equals("A")))
+                    throw new CWSException("Usage: CodeWorlds (A|D|G) [entityFile]");
 
-                Body world = new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : System.in).build().getWorld();
+                Body world =
+                        args[0].equals("A") ? new AutoWorldFactory().getWorld() : (new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : System.in).build().getWorld());
+
 
                 Rectangle bounds = world.getBounds();
                 System.out.printf("Bounds %s\n", bounds);
 
-                Display dsp = args[0].equals("G") ? new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl() : new DumpDisplay();
+                Display dsp = args[0].equals("D") ? new DumpDisplay() : new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl();
 
                 for (Brick brk : world) {
                     dsp.addDisplayable(brk);
