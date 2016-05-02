@@ -61,8 +61,8 @@ public class InputStreamWorldFactory implements WorldFactory {
             if(bodyMap.containsKey(tempName)){ //Validate that the name exists in the bodyMap
                 if(body.add(bodyMap.get(tempName).clone(tempVector))) //Add it, if one does
                     continue;
-                throw new CWSException(String.format("Exception: Body's (%s) location (%s) already exists.",
-                        tempName, tempVector.toString())); //Else, the classes already equal, or locations equal
+//                throw new CWSException(String.format("Exception: Body's (%s) location (%s) already exists.",
+//                        tempName, tempVector.toString())); //Else, the classes already equal, or locations equal
             }
         }
         return body;

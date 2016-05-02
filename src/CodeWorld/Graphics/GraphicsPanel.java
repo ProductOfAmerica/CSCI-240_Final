@@ -16,156 +16,149 @@ import javax.swing.JPanel;
 public class GraphicsPanel extends JPanel implements Display {
     static final int kMaxDim = 1024;
     static final Color kBackground = new Color(200, 200, 255);
-
-    private Displayable[][] dsps; // Grid of displayables
-    private int imgX;              // Image X/Y of current upper left corner
+    private Displayable[][] dsps;
+    private int imgX;
     private int imgY;
-    private int imgWidth;         // Image dimensions
+    private int imgWidth;
     private int imgHeight;
-    private int pixPerCell;        // Pixels per cell (>= 1, must be power of 2)
-    private int minPxPerCell;     // Lowest reasonable value for pxPerCell
-    BufferedImage img;            // Current zoomed image
+    private int pixPerCell;
+    private int minPxPerCell;
+    BufferedImage img;
 
-    // Create a GraphicsDisplay for a world of the indicated dimensions.
     public GraphicsPanel(int xDim, int yDim) throws CWSException {
-        int minCellSize; // Size of cell that just fits in kMaxDim, w/ no zoom
+        this.dsps = new Brick[yDim][xDim];
+        int minCellSize = (int)Math.floor(1024 / Math.max(xDim, yDim));
+        if (minCellSize < 1) {
+            throw new CWSException(String.format("Display dimension is over %d", 1024));
+        }
+        this.pixPerCell = 1;
+        while (minCellSize > 1) {
+            this.pixPerCell *= 2;
+            minCellSize >>= 1;
+        }
+        this.minPxPerCell = this.pixPerCell;
+        this.imgWidth = xDim * this.pixPerCell;
+        this.imgHeight = yDim * this.pixPerCell;
+        this.img = new BufferedImage(this.imgWidth, this.imgHeight, 2);
+        this.buildImage();
+        this.addMouseListener(new MouseAdapter(){
 
-        dsps = new Brick[yDim][xDim];
-        minCellSize = (int)Math.floor(kMaxDim / Math.max(xDim, yDim));
-
-        if (minCellSize < 1)
-            throw new CWSException(
-                    String.format("CodeWorld.Graphics.Display dimension is over %d", kMaxDim));
-
-        // Nearest power of two <= minCellSize
-        for (pixPerCell = 1; minCellSize > 1; minCellSize >>= 1)
-            pixPerCell *= 2;
-        minPxPerCell = pixPerCell;
-
-        imgWidth = xDim * pixPerCell;
-        imgHeight = yDim * pixPerCell;
-        img = new BufferedImage(imgWidth, imgHeight, BufferedImage.TYPE_INT_ARGB);
-        buildImage();
-
-        addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent evt) {
-                if (!evt.isControlDown())
-                    recenter(evt.getX(), evt.getY());
-                else
-                    zoom(evt.getButton() == MouseEvent.BUTTON1 ? 1 : -1);
+                if (!evt.isControlDown()) {
+                    GraphicsPanel.this.recenter(evt.getX(), evt.getY());
+                } else {
+                    GraphicsPanel.this.zoom(evt.getButton() == 1 ? 1 : -1);
+                }
             }
         });
     }
 
     @Override
-    public Dimension getMinimumSize() {return getPreferredSize();}
+    public Dimension getMinimumSize() {
+        return this.getPreferredSize();
+    }
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(imgWidth, imgHeight);
+        return new Dimension(this.imgWidth, this.imgHeight);
     }
 
     public void zoom(int steps) {
-        int oldPPC = pixPerCell;
-
-        pixPerCell = steps > 0 ? pixPerCell << steps : pixPerCell >> -steps;
-        pixPerCell = Math.max(minPxPerCell, pixPerCell);
-
-        // Recenter on new global image coordinates of the centerpoint.
-        makeCenter((imgX + imgWidth/2) * pixPerCell/oldPPC,
-                (imgY + imgHeight/2) * pixPerCell/oldPPC);
-
-        buildImage();
-        repaint();
+        int oldPPC = this.pixPerCell;
+        this.pixPerCell = steps > 0 ? this.pixPerCell << steps : this.pixPerCell >> - steps;
+        this.pixPerCell = Math.max(this.minPxPerCell, this.pixPerCell);
+        this.makeCenter((this.imgX + this.imgWidth / 2) * this.pixPerCell / oldPPC, (this.imgY + this.imgHeight / 2) * this.pixPerCell / oldPPC);
+        this.buildImage();
+        this.repaint();
     }
 
-    // Make the specified GLOBAL IMAGE coordinates the centerpoint
     public void makeCenter(int x, int y) {
-        int xLimit = dsps[0].length*pixPerCell - imgWidth;
-        int yLimit = dsps.length*pixPerCell - imgHeight;
-        imgX = Math.max(0, Math.min(xLimit, x - imgWidth/2));
-        imgY = Math.max(0, Math.min(yLimit, y - imgHeight/2));
+        int xLimit = this.dsps[0].length * this.pixPerCell - this.imgWidth;
+        int yLimit = this.dsps.length * this.pixPerCell - this.imgHeight;
+        this.imgX = Math.max(0, Math.min(xLimit, x - this.imgWidth / 2));
+        this.imgY = Math.max(0, Math.min(yLimit, y - this.imgHeight / 2));
     }
 
-    // Recenter on the specified DISPLAYED WINDOW coordinates
     public void recenter(int x, int y) {
-        makeCenter(imgX + x, imgY + y);
-        buildImage();
-        repaint();
+        this.makeCenter(this.imgX + x, this.imgY + y);
+        this.buildImage();
+        this.repaint();
     }
 
     public void buildImage() {
-        Graphics2D grp;
-        int row, col;
-
-        grp = img.createGraphics();
+        Graphics2D grp = this.img.createGraphics();
         grp.setColor(kBackground);
-        grp.fillRect(0, 0, imgWidth, imgHeight);
-
-        for (row = imgY/pixPerCell; row <= (imgY+imgHeight - 1)/pixPerCell; row++)
-            for (col = imgX/pixPerCell; col <= (imgX+imgWidth - 1)/pixPerCell; col++)
-                if (dsps[row][col] != null)
-                    grp.drawImage(dsps[row][col].getImage(pixPerCell),
-                            col*pixPerCell - imgX, row*pixPerCell - imgY, null);
+        grp.fillRect(0, 0, this.imgWidth, this.imgHeight);
+        int row = this.imgY / this.pixPerCell;
+        while (row <= (this.imgY + this.imgHeight - 1) / this.pixPerCell) {
+            int col = this.imgX / this.pixPerCell;
+            while (col <= (this.imgX + this.imgWidth - 1) / this.pixPerCell) {
+                if (this.dsps[row][col] != null) {
+                    grp.drawImage(this.dsps[row][col].getImage(this.pixPerCell), col * this.pixPerCell - this.imgX, row * this.pixPerCell - this.imgY, null);
+                }
+                ++col;
+            }
+            ++row;
+        }
         grp.dispose();
     }
 
     public boolean inRange(Vector loc) {
-        return loc.getX() >= 0 && loc.getX() < dsps[0].length && loc.getY() >= 0
-                && loc.getY() < dsps.length;
+        if (loc.getX() >= 0 && loc.getX() < this.dsps[0].length && loc.getY() >= 0 && loc.getY() < this.dsps.length) {
+            return true;
+        }
+        return false;
     }
 
-    // Does |loc|'s cell overlap the currently visible image?
     public boolean inImage(Vector loc) {
-        return loc.getX() > imgX - pixPerCell && loc.getX() < imgX + imgWidth
-                && loc.getY() > imgY - pixPerCell && loc.getY() < imgY + imgHeight;
+        if (loc.getX() > this.imgX - this.pixPerCell && loc.getX() < this.imgX + this.imgWidth && loc.getY() > this.imgY - this.pixPerCell && loc.getY() < this.imgY + this.imgHeight) {
+            return true;
+        }
+        return false;
     }
 
     public void update(Displayable dsp, Object lc) {
-        Vector oldLoc, newLoc = dsp.getLoc(), oldPxLoc, newPxLoc;
-        Graphics2D imgGrp = img.createGraphics();
-
+        Vector newLoc = dsp.getLoc();
+        Graphics2D imgGrp = this.img.createGraphics();
         if (lc != null) {
-            oldLoc = (Vector)lc;
-            oldPxLoc = oldLoc.scale(pixPerCell);
-            if (inRange(oldLoc)) {
-                dsps[oldLoc.getY()][oldLoc.getX()] = null;
-                if (inImage(oldPxLoc)) {
+            Vector oldLoc = (Vector)lc;
+            Vector oldPxLoc = oldLoc.scale(this.pixPerCell);
+            if (this.inRange(oldLoc)) {
+                this.dsps[oldLoc.getY()][oldLoc.getX()] = null;
+                if (this.inImage(oldPxLoc)) {
                     imgGrp.setColor(kBackground);
-                    imgGrp.fillRect(oldPxLoc.getX() - imgX, oldPxLoc.getY() - imgY,
-                            pixPerCell, pixPerCell);
+                    imgGrp.fillRect(oldPxLoc.getX() - this.imgX, oldPxLoc.getY() - this.imgY, this.pixPerCell, this.pixPerCell);
                 }
             }
         }
-
         if (newLoc != null) {
-            newPxLoc = newLoc.scale(pixPerCell);
-            if (inRange(newLoc)) {
-                dsps[newLoc.getY()][newLoc.getX()] = dsp;
-                if (inImage(newPxLoc)) {
-                    imgGrp.drawImage(dsp.getImage(pixPerCell), newPxLoc.getX() - imgX,
-                            newPxLoc.getY() - imgY, null);
+            Vector newPxLoc = newLoc.scale(this.pixPerCell);
+            if (this.inRange(newLoc)) {
+                this.dsps[newLoc.getY()][newLoc.getX()] = dsp;
+                if (this.inImage(newPxLoc)) {
+                    imgGrp.drawImage(dsp.getImage(this.pixPerCell), newPxLoc.getX() - this.imgX, newPxLoc.getY() - this.imgY, null);
                 }
             }
         }
-
         imgGrp.dispose();
-        repaint();
+        this.repaint();
     }
 
     @Override
     public void addDisplayable(Displayable dsp) {
-        dsps[dsp.getLoc().getY()][dsp.getLoc().getX()] = dsp;
-        update(dsp, null);
+        this.dsps[dsp.getLoc().getY()][dsp.getLoc().getX()] = dsp;
+        this.update(dsp, null);
     }
 
     @Override
-    public void redraw(int time) {repaint();}
+    public void redraw(int time) {
+        this.repaint();
+    }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(img, 0, 0, null);
+        g.drawImage(this.img, 0, 0, null);
     }
 }

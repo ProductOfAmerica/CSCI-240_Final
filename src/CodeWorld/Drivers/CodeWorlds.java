@@ -17,35 +17,25 @@ import java.util.Scanner;
 
 public class CodeWorlds {
     public static void main(String[] args) {
-        Display dsp;
-        WorldFactory fact;
-        Body world;
-        Rectangle bounds;
         try (Scanner in = new Scanner(System.in)) {
-            if (args.length < 1 || args.length > 2 || !args[0].equals("D") && !args[0].equals("G"))
-                throw new CWSException("Usage: CodeWorld.Drivers.CodeWorld (D|G) [entityFile]");
+            try {
+                if (args.length < 1 || args.length > 2 || !args[0].equals("D") && !args[0].equals("G"))
+                    throw new CWSException("Usage: CodeWorlds (D|G) [entityFile]");
 
+                Body world = new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : System.in).build().getWorld();
 
-            fact = new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : in);
-            fact.build();
-            world = fact.getWorld();
+                Rectangle bounds = world.getBounds();
+                System.out.printf("Bounds %s\n", bounds);
 
-            bounds = world.getBounds();
-            System.out.printf("Bounds %s\n", bounds);
+                Display dsp = args[0].equals("G") ? new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl() : new DumpDisplay();
 
-            dsp = args[0].equals("G") ? new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl() : new DumpDisplay();
-
-            Animal.setRange(world.getBounds()); //Set the size of the world
-
-            for (Brick brk : world) {
-                System.out.println(brk.getBounds());
-                dsp.addDisplayable(brk);
+                for (Brick brk : world) {
+                    dsp.addDisplayable(brk);
+                }
+            } catch (IOException | CWSException err) {
+                Logger.getLogger().log("Error: %s\n", err.getMessage());
+                in.close();
             }
-
-            dsp.redraw(0);
-        } catch (IOException | CWSException err) {
-            System.err.println("Error: " + err.getMessage());
-            Logger.getLogger().log("Error: %s\n", err.getMessage());
         }
     }
 }
