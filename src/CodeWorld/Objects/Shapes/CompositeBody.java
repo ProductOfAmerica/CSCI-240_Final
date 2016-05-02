@@ -43,7 +43,7 @@ public class CompositeBody implements Body {
     public boolean add(Body body){
         for (Brick b : body) {
             for (Brick temp : this) {
-                if (b.getClass() == temp.getClass() || b.getLoc().equals(temp.getLoc()))
+                if (b.getClass() == temp.getClass() || !b.getLoc().equals(temp.getLoc()))
                     continue;
                 return false;
             }
@@ -87,7 +87,7 @@ public class CompositeBody implements Body {
         }
 
         private void step(){
-            while(bodyIterator.hasNext() && (brickIterator == null || brickIterator.hasNext()))
+            while(bodyIterator.hasNext() && (brickIterator == null || !brickIterator.hasNext()))
                 brickIterator = bodyIterator.next().iterator();
         }
     }

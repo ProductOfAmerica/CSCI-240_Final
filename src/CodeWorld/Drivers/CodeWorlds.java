@@ -31,6 +31,7 @@ public class CodeWorlds {
                     dsp.addDisplayable(brk);
                 }
             } catch (IOException | CWSException err) {
+                System.err.println("Error: " + err.getMessage());
                 Logger.getLogger().log("Error: %s\n", err.getMessage());
                 in.close();
             }
