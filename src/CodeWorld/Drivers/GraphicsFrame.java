@@ -1,17 +1,11 @@
 package CodeWorld.Drivers;
 
-import CodeWorld.Animals.Cow;
-import CodeWorld.Animals.Horse;
-import CodeWorld.Animals.Sloth;
-import CodeWorld.Animals.Unicorn;
 import CodeWorld.Graphics.GraphicsPanel;
 import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Drivers.Helpers.CWSException;
 import CodeWorld.Objects.Body;
-import CodeWorld.Objects.Ore;
 import CodeWorld.Objects.Shapes.Rectangle;
 import CodeWorld.Objects.Shapes.Vector;
-import CodeWorld.Objects.Tree;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -77,9 +71,6 @@ public class GraphicsFrame extends JFrame {
             return img;
         }
 
-        /**
-         * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         */
         @Override
         public Rectangle getBounds() {
             return null;
@@ -92,19 +83,5 @@ public class GraphicsFrame extends JFrame {
         public Iterator<Brick> iterator() {
             return null;
         }
-        /**
-         * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         */
-    }
-
-    public static void main(String[] args) throws CWSException {
-        GraphicsFrame frame = new GraphicsFrame(15, 15);
-
-        frame.getPnl().addDisplayable(new Tree(new Vector(5, 8)));
-        frame.getPnl().addDisplayable(new Ore(new Vector(6, 8)));
-        frame.getPnl().addDisplayable(new Cow(new Vector(7, 8)));
-        frame.getPnl().addDisplayable(new Horse(new Vector(10, 11)));
-        frame.getPnl().addDisplayable(new Sloth(new Vector(8, 8)));
-        frame.getPnl().addDisplayable(new Unicorn(new Vector(9, 8)));
     }
 }
