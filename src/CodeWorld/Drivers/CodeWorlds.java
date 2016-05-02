@@ -13,7 +13,6 @@ import CodeWorld.Objects.Shapes.Rectangle;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class CodeWorlds {
@@ -38,8 +37,10 @@ public class CodeWorlds {
 
             Animal.setRange(world.getBounds()); //Set the size of the world
 
-            for (Brick brk : world)
+            for (Brick brk : world) {
+                System.out.println(brk.getBounds());
                 dsp.addDisplayable(brk);
+            }
 
             dsp.redraw(0);
         } catch (IOException | CWSException err) {

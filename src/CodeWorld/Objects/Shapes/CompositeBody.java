@@ -15,13 +15,13 @@ public class CompositeBody implements Body {
 
     @Override
     public Rectangle getBounds() {
-        Rectangle bounds = null;
-        for (Body child : children) {
+        bounds = null;
+        for (Body body : children) {
             if (bounds == null) {
-                bounds = new Rectangle(child.getBounds());
+                bounds = new Rectangle(body.getBounds());
                 continue;
             }
-            bounds.unionBy(child.getBounds());
+            bounds.unionBy(body.getBounds());
         }
         return bounds;
     }
