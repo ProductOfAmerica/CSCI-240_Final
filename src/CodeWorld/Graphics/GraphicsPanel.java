@@ -105,17 +105,11 @@ public class GraphicsPanel extends JPanel implements Display {
     }
 
     public boolean inRange(Vector loc) {
-        if (loc.getX() >= 0 && loc.getX() < this.dsps[0].length && loc.getY() >= 0 && loc.getY() < this.dsps.length) {
-            return true;
-        }
-        return false;
+        return loc.getX() >= 0 && loc.getX() < this.dsps[0].length && loc.getY() >= 0 && loc.getY() < this.dsps.length;
     }
 
     public boolean inImage(Vector loc) {
-        if (loc.getX() > this.imgX - this.pixPerCell && loc.getX() < this.imgX + this.imgWidth && loc.getY() > this.imgY - this.pixPerCell && loc.getY() < this.imgY + this.imgHeight) {
-            return true;
-        }
-        return false;
+        return loc.getX() > this.imgX - this.pixPerCell && loc.getX() < this.imgX + this.imgWidth && loc.getY() > this.imgY - this.pixPerCell && loc.getY() < this.imgY + this.imgHeight;
     }
 
     public void update(Displayable dsp, Object lc) {

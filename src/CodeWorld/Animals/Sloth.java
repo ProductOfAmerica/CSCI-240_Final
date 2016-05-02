@@ -42,9 +42,9 @@ public class Sloth extends Animal {
             g.fillOval(size/2, size/20, (int) (size/3.5), (int) (size/3.5));
 
             g.setColor(Color.black);
-            g.fillOval((int) (size/1.8), size/8, (int) (size/18), (int) (size/18));
-            g.fillOval((int) (size/1.46), size/8, (int) (size/18), (int) (size/18));
-            g.fillOval((int) (size/1.63), (int) (size/4.5), (int) (size/18), (int) (size/18));
+            g.fillOval((int) (size/1.8), size/8, size/18, size/18);
+            g.fillOval((int) (size/1.46), size/8, size/18, size/18);
+            g.fillOval((int) (size/1.63), (int) (size/4.5), size/18, size/18);
 
             g.setColor(Color.WHITE);
             g.setStroke(new BasicStroke(size/20f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10.0f, new float[]{1}, 0.0f));
