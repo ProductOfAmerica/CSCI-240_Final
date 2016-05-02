@@ -98,9 +98,7 @@ public class GraphicsFrame extends JFrame {
     }
 
     public static void main(String[] args) throws CWSException {
-        GraphicsFrame frame = new GraphicsFrame(100, 100);
-        SampleDsp dsps[] = new SampleDsp[10];
-        int i;
+        GraphicsFrame frame = new GraphicsFrame(15, 15);
 
         frame.getPnl().addDisplayable(new Tree(new Vector(5, 8)));
         frame.getPnl().addDisplayable(new Ore(new Vector(6, 8)));
@@ -108,11 +106,5 @@ public class GraphicsFrame extends JFrame {
         frame.getPnl().addDisplayable(new Horse(new Vector(10, 11)));
         frame.getPnl().addDisplayable(new Sloth(new Vector(8, 8)));
         frame.getPnl().addDisplayable(new Unicorn(new Vector(9, 8)));
-
-        for (i = 0; i < 10; i++) {
-            dsps[i] = new SampleDsp(new Vector(5 + i*10, 5 + i*10 + i%2),
-                    new Vector(i%2*2 - 1, 1 - i%2*2));
-            frame.getPnl().addDisplayable(dsps[i]);
-        }
     }
 }

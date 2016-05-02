@@ -35,12 +35,21 @@ public class Sloth extends Animal {
             g = img.createGraphics();
             g.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
 
-            g.setColor(Color.DARK_GRAY);
-            g.fillOval(3*size/10, 3*size/10, size/5, size/5);
+            g.setColor(new Color(60, 41, 34));
+            g.fillOval((int) (size/2.4), size/4, (int) (size/2.1), (int) (size/2.1));
 
-            g.fillOval(3*size/10, 3*size/10, size/10, size/10);
+            g.setColor(new Color(163, 114, 92));
+            g.fillOval(size/2, size/20, (int) (size/3.5), (int) (size/3.5));
 
+            g.setColor(Color.black);
+            g.fillOval((int) (size/1.8), size/8, (int) (size/18), (int) (size/18));
+            g.fillOval((int) (size/1.46), size/8, (int) (size/18), (int) (size/18));
+            g.fillOval((int) (size/1.63), (int) (size/4.5), (int) (size/18), (int) (size/18));
 
+            g.setColor(Color.WHITE);
+            g.setStroke(new BasicStroke(size/20f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10.0f, new float[]{1}, 0.0f));
+            g.drawLine(size/2, (int) (size/1.6), size/3, (int) (size/1.4));
+            g.drawLine((int) (size/1.3), (int) (size/1.6), (int) (size/1.1), (int) (size/1.4));
 
             g.dispose();
         }
