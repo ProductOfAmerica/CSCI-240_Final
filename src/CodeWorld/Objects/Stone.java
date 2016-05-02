@@ -1,6 +1,6 @@
 package CodeWorld.Objects;
 
-import CodeWorld.Drivers.Helpers.SingleIterator;
+import CodeWorld.Drivers.Helpers.OtherIterator;
 import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Objects.Shapes.Rectangle;
 import CodeWorld.Objects.Shapes.Vector;
@@ -47,7 +47,7 @@ public class Stone extends Brick {
 
     @Override
     public Iterator<Brick> iterator() {
-        return new SingleIterator<>(this);
+        return new OtherIterator<>(this);
     }
     /**
      * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

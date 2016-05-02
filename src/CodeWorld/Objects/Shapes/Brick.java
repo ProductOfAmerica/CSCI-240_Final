@@ -1,6 +1,6 @@
 package CodeWorld.Objects.Shapes;
 
-import CodeWorld.Drivers.Helpers.SingleIterator;
+import CodeWorld.Drivers.Helpers.OtherIterator;
 import CodeWorld.Objects.Body;
 import CodeWorld.Graphics.Displayable;
 
@@ -51,6 +51,6 @@ public abstract class Brick implements Body, Displayable {
 
     @Override
     public Iterator<Brick> iterator() {
-        return new SingleIterator<>(this);
+        return new OtherIterator<>(this);
     }
 }

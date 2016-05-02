@@ -1,6 +1,6 @@
 package CodeWorld.Animals;
 
-import CodeWorld.Drivers.Helpers.SingleIterator;
+import CodeWorld.Drivers.Helpers.OtherIterator;
 import CodeWorld.Objects.Shapes.Brick;
 import CodeWorld.Objects.Body;
 import CodeWorld.Objects.Shapes.Rectangle;
@@ -85,7 +85,7 @@ public class Cow extends HerdAnimal {
 
     @Override
     public Iterator<Brick> iterator() {
-        return new SingleIterator<>(this);
+        return new OtherIterator<>(this);
     }
     /**
      * TODO: FIX THIS CODE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
