@@ -1,10 +1,8 @@
 package CodeWorld.Drivers;
 
-import CodeWorld.Animals.Animal;
 import CodeWorld.Drivers.Helpers.CWSException;
 import CodeWorld.Drivers.Helpers.InputStreamWorldFactory;
 import CodeWorld.Drivers.Helpers.Logger;
-import CodeWorld.Drivers.Helpers.WorldFactory;
 import CodeWorld.Graphics.Display;
 import CodeWorld.Graphics.DumpDisplay;
 import CodeWorld.Objects.Body;

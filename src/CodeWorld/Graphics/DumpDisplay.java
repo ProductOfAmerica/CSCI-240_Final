@@ -19,12 +19,15 @@ public class DumpDisplay implements Display {
     private List<Displayable> dsps = new LinkedList<Displayable>();
 
     @Override
-    public void addDisplayable(Displayable dsp) {dsps.add(dsp);}
+    public void addDisplayable(Displayable dsp) {
+        this.dsps.add(dsp);
+    }
 
     @Override
     public void redraw(int time) {
         System.out.printf("\nAt time %d:\n", time);
-        for (Displayable dsp: dsps)
+        for (Displayable dsp : this.dsps) {
             System.out.println(dsp.getLoc());
+        }
     }
 }
