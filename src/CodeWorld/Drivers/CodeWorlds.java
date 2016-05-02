@@ -24,13 +24,12 @@ public class CodeWorlds {
                 Body world = args[0].equals("A") ? new AutoWorldFactory().build().getWorld() : (new InputStreamWorldFactory(args.length == 2 ? new FileInputStream(args[1]) : System.in).build().getWorld());
 
                 Rectangle bounds = world.getBounds();
-                System.out.printf("Bounds %s\n", bounds);
-
                 Display dsp = args[0].equals("D") ? new DumpDisplay() : new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl();
 
                 for (Brick brk : world) {
                     dsp.addDisplayable(brk);
                 }
+
             } catch (IOException | CWSException err) {
                 System.err.println("Error: " + err.getMessage());
                 Logger.getLogger().log("Error: %s\n", err.getMessage());
