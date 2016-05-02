@@ -43,17 +43,17 @@ public class InputStreamWorldFactory implements WorldFactory {
     public WorldFactory build() throws CWSException {
         while (in.hasNext("\\(")){
             in.next();
-            bodyMap.put(in.next().trim(), stringToBody());
+            bodyMap.put(in.next().trim(), getInput());
             if(in.hasNext() && in.next().contains(")"))
                 continue;
             throw new CWSException("Missing parenthesis");
         }
 
-        world = stringToBody();
+        world = getInput();
         return this;
     }
 
-    private Body stringToBody() throws CWSException {
+    private Body getInput() throws CWSException {
         CompositeBody body = new CompositeBody();
         while (in.hasNext() && !in.hasNext("\\)")){
             String tempName = in.next().trim(); //This will be the object type

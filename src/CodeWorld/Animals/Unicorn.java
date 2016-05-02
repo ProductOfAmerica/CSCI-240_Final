@@ -26,52 +26,52 @@ public class Unicorn extends HerdAnimal {
 
     @Override
     public Image getImage(int size) {
-        Graphics2D grp;
+        Graphics2D g;
         Color bodyClr = new Color(250, 0, 240), hornClr = new Color(0, 234, 255),
                 hoofClr = new Color(0, 255, 252), spotClr = Color.BLACK;
 
         if (size != imgSize) {
             img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
-            grp = img.createGraphics();
-            grp.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+            g = img.createGraphics();
+            g.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
 
             // CodeWorld.Objects.Head and body
-            grp.setColor(new Color(255, 175, 244, 254));
-            grp.fillRoundRect(size/10,  2*size/10,  3*size/10,  2*size/10,
+            g.setColor(new Color(255, 175, 244, 254));
+            g.fillRoundRect(size/10,  2*size/10,  3*size/10,  2*size/10,
                     size/10, size/10);
-            grp.setColor(bodyClr);
-            grp.fillRoundRect(3*size/10, 3*size/10, 6*size/10, 4*size/10, size/5,
+            g.setColor(bodyClr);
+            g.fillRoundRect(3*size/10, 3*size/10, 6*size/10, 4*size/10, size/5,
                     size/5);
 
             // Legs
-            grp.fillPolygon(
+            g.fillPolygon(
                     new int[] {size*4/10, size*5/10, size*4/10, size*5/20},
                     new int[] {size/2, size/2, size*17/20, size*17/20}, 4);
-            grp.fillPolygon(
+            g.fillPolygon(
                     new int[] {size*7/10, size*8/10, size*9/10, size*15/20},
                     new int[] {size/2, size/2, size*17/20, size*17/20}, 4);
 
             // Hooves
-            grp.setColor(hoofClr);
-            grp.fillPolygon(
+            g.setColor(hoofClr);
+            g.fillPolygon(
                     new int[] {size*5/20, size*4/10, size*9/20, size*2/10},
                     new int[] {size*17/20, size*17/20, size*19/20, size*19/20}, 4);
-            grp.setColor(new Color(8, 255, 0));
-            grp.fillPolygon(
+            g.setColor(new Color(8, 255, 0));
+            g.fillPolygon(
                     new int[] {size*15/20, size*9/10, size*19/20, size*7/10},
                     new int[] {size*17/20, size*17/20, size*19/20, size*19/20}, 4);
 
             // Eye
-            grp.setColor(spotClr);
-            grp.fillOval(3*size/10, 5*size/20, size/40, size/40);
+            g.setColor(spotClr);
+            g.fillOval(3*size/10, 5*size/20, size/40, size/40);
 
             // Horn
-            grp.setColor(hornClr);
-            grp.fillPolygon(
+            g.setColor(hornClr);
+            g.fillPolygon(
                     new int[] {3*size/10, 7*size/20, 5*size/20},
                     new int[] {2*size/10, 2*size/10, size/10}, 3);
 
-            grp.dispose();
+            g.dispose();
         }
 
         return img;

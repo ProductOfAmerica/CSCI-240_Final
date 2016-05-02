@@ -1,5 +1,6 @@
 package CodeWorld.Drivers;
 
+import CodeWorld.Animals.Animal;
 import CodeWorld.Drivers.Helpers.CWSException;
 import CodeWorld.Drivers.Helpers.InputStreamWorldFactory;
 import CodeWorld.Drivers.Helpers.Logger;
@@ -12,6 +13,7 @@ import CodeWorld.Objects.Shapes.Rectangle;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class CodeWorlds {
@@ -32,14 +34,16 @@ public class CodeWorlds {
             bounds = world.getBounds();
             System.out.printf("Bounds %s\n", bounds);
 
-            dsp = args[0].equals("G") ?
-                    new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl() : new DumpDisplay();
+            dsp = args[0].equals("G") ? new GraphicsFrame(bounds.getRight(), bounds.getBottom()).getPnl() : new DumpDisplay();
+
+            Animal.setRange(world.getBounds()); //Set the size of the world
 
             for (Brick brk : world)
                 dsp.addDisplayable(brk);
 
             dsp.redraw(0);
         } catch (IOException | CWSException err) {
+            System.err.println("Error: " + err.getMessage());
             Logger.getLogger().log("Error: %s\n", err.getMessage());
         }
     }

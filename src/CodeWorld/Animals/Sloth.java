@@ -29,21 +29,21 @@ public class Sloth extends Animal {
 
     @Override
     public Image getImage(int size) {
-        Graphics2D grp;
+        Graphics2D g;
 
         if (size != imgSize) {
             img = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
-            grp = img.createGraphics();
-            grp.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
+            g = img.createGraphics();
+            g.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON));
 
-            grp.setColor(Color.DARK_GRAY);
-            grp.fillOval(3*size/10, 3*size/10, size/5, size/5);
+            g.setColor(Color.DARK_GRAY);
+            g.fillOval(3*size/10, 3*size/10, size/5, size/5);
 
-            grp.fillOval(3*size/10, 3*size/10, size/10, size/10);
+            g.fillOval(3*size/10, 3*size/10, size/10, size/10);
 
 
 
-            grp.dispose();
+            g.dispose();
         }
 
         return img;
